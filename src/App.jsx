@@ -4,7 +4,7 @@ import ContactList from "./components/ContactList/ContactList";
 import "./App.css";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { fetchContacts } from "./redux/contactsOps";
+import { fetchContacts } from "./redux/contacts/operations";
 
 function App() {
   const dispatch = useDispatch();

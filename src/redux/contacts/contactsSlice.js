@@ -1,7 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchContacts } from "./contactsOps";
-import { addContact } from "./contactsOps";
-import { deleteContact } from "./contactsOps";
+import { fetchContacts } from "./operations";
+import { addContact } from "./operations";
+import { deleteContact } from "./operations";
+import { logOut } from "../auth/operations";
 /* import { createSelector } from "@reduxjs/toolkit"; */
 const fetchIsLoading = (state) => {
   state.isLoading = true;
@@ -44,6 +45,11 @@ const contactsSlice = createSlice({
         });
 
         state.items.splice(deleteContact, 1);
+      })
+      .addCase(logOut.fulfilled, (state) => {
+        state.items = [];
+        state.error = null;
+        state.isLoading = false;
       });
   },
 });
