@@ -1,8 +1,8 @@
-import { useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { object, string } from "yup";
 import { useDispatch } from "react-redux";
 import { logIn } from "../../redux/auth/operations";
+import css from "./LoginForm.module.css";
 
 const LoginForm = () => {
   const dispatch = useDispatch();
@@ -22,15 +22,15 @@ const LoginForm = () => {
         validationSchema={userSchema}
         onSubmit={handleSubmit}
       >
-        <Form>
-          <label>
+        <Form className={css.form}>
+          <label className={css.label}>
             <span>EMAIL</span>
             <div>
               <Field type="email" name="email"></Field>
               <ErrorMessage component="span" name="email"></ErrorMessage>
             </div>
           </label>
-          <label>
+          <label className={css.label}>
             {" "}
             <span>password</span>
             <div>

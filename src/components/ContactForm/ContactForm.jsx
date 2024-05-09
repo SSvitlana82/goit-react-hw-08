@@ -1,7 +1,7 @@
 import { Formik, Form, Field, ErrorMessage } from "formik";
 
 import { object, string } from "yup";
-import style from "./ContactForm.module.css";
+import css from "./ContactForm.module.css";
 import { addContact } from "../../redux/contacts/operations";
 import { useDispatch } from "react-redux";
 
@@ -27,36 +27,36 @@ const ContactForm = () => {
         validationSchema={contactSchema}
         onSubmit={handleSubmit}
       >
-        <Form className={style.submitForm}>
-          <label className={style.label}>
-            <span className={style.spanUser}>Name</span>
-            <div className={style.fieldContainer}>
-              <Field type="text" name="name" className={style.field}></Field>
+        <Form className={css.submitForm}>
+          <label className={css.label}>
+            <span className={css.spanUser}>Name</span>
+            <div className={css.fieldContainer}>
+              <Field type="text" name="name" className={css.field}></Field>
               <ErrorMessage
                 component="span"
                 name="name"
-                className={style.error}
+                className={css.error}
               ></ErrorMessage>
             </div>
           </label>
-          <label className={style.label}>
+          <label className={css.label}>
             {" "}
-            <span className={style.spanUser}>Number</span>
-            <div className={style.fieldContainer}>
+            <span className={css.spanUser}>Number</span>
+            <div className={css.fieldContainer}>
               <Field
                 type="text"
                 name="number"
-                className={style.field}
+                className={css.field}
                 placeholder="format xxx-xx-xx"
               ></Field>
               <ErrorMessage
                 component="span"
                 name="number"
-                className={style.error}
+                className={css.error}
               ></ErrorMessage>
             </div>
           </label>
-          <button type="submit" className={style.btn}>
+          <button type="submit" className={css.btn}>
             Add contact
           </button>
         </Form>

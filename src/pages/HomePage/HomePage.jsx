@@ -1,12 +1,13 @@
 import DocumentTitle from "../../components/DocumentTitle";
+import css from "./HomePage.module.css";
 
 const HomePage = () => {
   return (
     <div>
       <DocumentTitle>Home</DocumentTitle>
 
-      <div>
-        <h1>
+      <div className={css.container}>
+        <h1 className={css.title}>
           PHONEBOOK{" "}
           <span role="img" aria-label="Greeting icon">
             💁‍♀️
