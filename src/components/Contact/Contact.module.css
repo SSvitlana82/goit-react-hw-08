@@ -21,10 +21,14 @@
 .icon {
   margin-right: 5px;
 }
+
 .contactBtn {
   display: flex;
   padding: 5px 5px;
   border: 2px solid rgba(48, 45, 45, 0.623);
   border-radius: 5px;
   color: rgba(27, 26, 26, 0.815);
+  width: 65px;
+  margin-top: 2px;
+  margin-bottom: 2px;
 }

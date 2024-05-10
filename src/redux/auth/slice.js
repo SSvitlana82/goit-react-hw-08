@@ -1,8 +1,23 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { register, logIn, logOut, refreshUser } from "./operations";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
-const onRejected = (state) => {
+const onRejected = (state, action) => {
   state.isRefreshing = false;
+  if (action.payload === "Unable to fetch user") {
+    return;
+  }
+  toast.error(action.payload, {
+    position: "top-center",
+    autoClose: 5000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "colored",
+  });
 };
 
 const authSlice = createSlice({
@@ -39,12 +54,12 @@ const authSlice = createSlice({
         state.isRefreshing = false;
       })
       .addCase(register.rejected, onRejected)
-          .addCase(logIn.rejected, onRejected)
-          .addCase(logOut.rejected, onRejected)
-          .addCase(refreshUser.rejected, onRejected)
-        .addCase(refreshUser.pending, (state) => {
-          state.isRefreshing =true
-      })
+      .addCase(logIn.rejected, onRejected)
+      .addCase(logOut.rejected, onRejected)
+      .addCase(refreshUser.rejected, onRejected)
+      .addCase(refreshUser.pending, (state) => {
+        state.isRefreshing = true;
+      });
   },
 });
 export const authReducer = authSlice.reducer;
